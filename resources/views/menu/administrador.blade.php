@@ -1,6 +1,6 @@
 @extends('principal')
 
-@section('menu1')
+@section('menu')
 <div class="navigation">
     <div class="container">
       <nav class="navbar navbar-default">

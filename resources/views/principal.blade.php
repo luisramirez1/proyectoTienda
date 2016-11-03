@@ -154,7 +154,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 						&times;</button>
 					<h4 class="modal-title" id="myModalLabel">
-						{{ Auth::user()->name }}
+						{{ Auth::user()->name }} <br>
 					</h4>
 				</div>
 				<div class="modal-body modal-body-sub">
@@ -238,7 +238,14 @@
 			@if (Auth::guest())
 			@else
 			<div>
-				<span id="nombre">{{ Auth::user()->name }}</span>
+				<span id="nombre">{{ Auth::user()->name }}</span> <br>
+				@if(Auth::user()->tipoUsuario==1)
+					<span id="nombre">Administrador</span>
+				@endif
+				@if(Auth::user()->tipoUsuario==2)
+					<span id="nombre">Invitado</span>
+				@endif
+
 			</div>
 			@endif
 			<div class="w3l_logo">
@@ -280,7 +287,7 @@
 		</div>
 	</div>
 
-    @yield('content')
+    @yield('menu')
           
            
 		
