@@ -1,10 +1,41 @@
+#editar
+{
+	margin-left: 10px;
+}
+
 #imagen img
 {
 	width: 50px; 
 	height: 50px;
 }
 
+#imagenP img
+{
+	margin-top: -30px;
+	margin-left: 120px;
+	border-radius: 50px;
+	width: 150px; 
+	height: 150px;	
+}
+
 #nombre
 {
 	margin-left: 10px;
+}
+
+#jum
+{
+	margin: 0 auto;
+	width: 60%;
+}
+
+#form1
+{
+	border-radius: 10px;
+}
+
+#seccion1
+{
+	margin: 0 auto;
+	width: 90%;
 }

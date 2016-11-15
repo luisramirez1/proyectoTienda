@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
     <script src="{{asset("js/jquery.js")}}"></script>
     <script src="{{asset("js/bootstrap.js")}}"></script>
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Women's Fashion Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -26,9 +27,7 @@
 	<link href="{{asset("css/bootstrap.css")}}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{{asset("css/style.css")}}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{{asset("css/fasthover.css")}}" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{asset("css/estilos.css")}}")}}">
 	<!-- js -->
-	<script src="{{asset("js/jquery.min.js")}}"></script>
 	<!-- //js -->
 	<!-- countdown -->
 	<link rel="stylesheet" href="{{asset("css/jquery.countdown.css")}}" />
@@ -37,8 +36,8 @@
 	<script src="{{asset("js/simpleCart.min.js")}}"></script>
 	<!-- cart -->
 	<!-- for bootstrap working -->
-	<script type="text/javascript" src="{{asset("js/bootstrap-3.1.1.min.js")}}"></script>
 	<!-- //for bootstrap working -->
+    <link rel="stylesheet" href="{{asset("css/estilos.css")}}"> 
 	<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<!-- start-smooth-scrolling -->
@@ -50,12 +49,13 @@
 			});
 		});
 	</script>
-    <!-- Scripts -->
-    <script>
+
+     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+		
 </head>
 <body>
 	<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
@@ -66,7 +66,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 						&times;</button>
 					<h4 class="modal-title" id="myModalLabel">
-						Don't Wait, Login now!</h4>
+						No esperes mas, Ingresa ahora!</h4>
 				</div>
 				<div class="modal-body modal-body-sub">
 					<div class="row">
@@ -74,18 +74,38 @@
 							<div class="sap_tabs">	
 								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 									<ul>
-										<li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
-										<li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
+										<li class="resp-tab-item" aria-controls="tab_item-0"><span>Ingresa</span></li>
+										<li class="resp-tab-item" aria-controls="tab_item-1"><span>Registrate</span></li>
 									</ul>		
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 										<div class="facts">
 											<div class="register">
 												<form action="{{ url('/login') }}" method="post">
-													<input type="hidden" name="_token" value="{{csrf_token()}}">			
-													<input id="email" name="email" placeholder="Email Address" type="text" required="">						
-													<input id="password" name="password" placeholder="Password" type="password" required="">										
+													<input type="hidden" name="_token" value="{{csrf_token()}}">
+													<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+							                            <div>
+							                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Correo">
+
+							                                @if ($errors->has('email'))
+							                                    <span class="help-block">
+							                                        <strong>{{ $errors->first('email') }}</strong>
+							                                    </span>
+							                                @endif
+							                            </div>
+							                        </div>
+							                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+							                            <div>
+							                                <input id="password" type="password" class="form-control" name="password" required placeholder="Contraseña">
+
+							                                @if ($errors->has('password'))
+							                                    <span class="help-block">
+							                                        <strong>{{ $errors->first('password') }}</strong>
+							                                    </span>
+							                                @endif
+							                            </div>
+							                        </div>			
 													<div class="sign-up">
-														<input type="submit" value="Sign in"/>
+														<input type="submit" value="Ingresa"/>
 													</div>
 												</form>
 											</div>
@@ -96,13 +116,62 @@
 										<div class="facts">
 											<div class="register">
 												<form action="{{url('/register')}}" method="post">
-													<input type="hidden" name="_token" value="{{csrf_token()}}">				
-													<input placeholder="Name" id="name" name="name" type="text" required="">
-													<input placeholder="Email Address" id="email" name="email" type="email" required="">	
-													<input placeholder="Password" id="password" name="password" type="password" required="">	
-													<input placeholder="Confirm Password" id="password-confirm" name="password_confirmation" type="password" required="">
+													<input type="hidden" name="_token" value="{{csrf_token()}}">
+                        								<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+								                            <div>
+								                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="Nombre">
+
+								                                @if ($errors->has('name'))
+								                                    <span class="help-block">
+								                                        <strong>{{ $errors->first('name') }}</strong>
+								                                    </span>
+								                                @endif
+								                            </div>
+								                        </div>
+
+								                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+								                            <div>
+								                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="Correo">
+
+								                                @if ($errors->has('email'))
+								                                    <span class="help-block">
+								                                        <strong>{{ $errors->first('email') }}</strong>
+								                                    </span>
+								                                @endif
+								                            </div>
+								                        </div>
+
+								                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+								                            <div>
+								                                <input id="tel" type="tel" class="form-control" name="tel" value="{{ old('tel') }}" required autofocus placeholder="Celular" pattern="[0-9]{10}" onkeypress="return justNumbers(event);">
+
+								                                @if ($errors->has('tel'))
+								                                    <span class="help-block">
+								                                        <strong>{{ $errors->first('tel') }}</strong>
+								                                    </span>
+								                                @endif
+								                            </div>
+								                        </div>
+
+								                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+								                            <div>
+								                                <input id="password" type="password" class="form-control" name="password" required placeholder="Contraseña">
+
+								                                @if ($errors->has('password'))
+								                                    <span class="help-block">
+								                                        <strong>{{ $errors->first('password') }}</strong>
+								                                    </span>
+								                                @endif
+								                            </div>
+								                        </div>
+
+								                        <div class="form-group">
+								                            <div>
+								                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirmar Contraseña">
+								                            </div>
+								                        </div>
 													<div class="sign-up">
-														<input type="submit" value="Create Account"/>
+														<input type="submit" value="Registrarme"/>
 													</div>
 												</form>
 											</div>
@@ -162,12 +231,22 @@
 						<div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
 							<div class="sap_tabs">	
 								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-									<ul>
-										Tipo de Usuario: <br>
-										Correo: {{Auth::user()->email}} <br>
-										Celular: <br>
-
-									</ul>		
+									<div class="col-md-4">
+										<ul>
+											<b>Tipo de Usuario:</b> 	@if(Auth::user()->tipoUsuario==1)
+																	Administrador
+																@endif
+																@if(Auth::user()->tipoUsuario==2)
+																	Invitado
+																@endif<br>
+											<b>Correo:</b> {{Auth::user()->email}} <br>
+											<b>Celular:</b> {{Auth::user()->tel}}<br>
+										</ul>
+										<a href="{{url('/editar')}}" class="btn btn-info" id="editar">Editar</a>
+									</div>
+									<div class="col-md-4">
+										<span aria-hidden="true" id="imagenP"><img src="{{asset("images/2.jpg")}}" alt=""></span>
+									</div>
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 										<div class="facts">
 											<div class="register">
@@ -249,7 +328,11 @@
 			</div>
 			@endif
 			<div class="w3l_logo">
-				<h1><a href="{{url('/')}}"><b>TecShop</b><span>Tecnologia a la Moda</span></a></h1>
+				@if (Auth::guest())
+					<h1><a href="{{url('/')}}"><b>TecShop</b><span>Tecnologia a la Moda</span></a></h1>
+				@else
+					<h1><a href="{{url('/inicio')}}"><b>TecShop</b><span>Tecnologia a la Moda</span></a></h1>
+				@endif
 			</div>
 			<div class="search">
 				<input class="search_box" type="checkbox" id="search_box">
@@ -286,64 +369,149 @@
 			@endif
 		</div>
 	</div>
+	
+	<div id="home1">
+    @if(Auth::user()->tipoUsuario==1)	
+    	<div id="menu1">
+			<div class="navigation">
+			    <div class="container">
+			      <nav class="navbar navbar-default">
+			        <!-- Brand and toggle get grouped for better mobile display -->
+			        <div class="navbar-header nav_2">
+			          <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			          </button>
+			        </div> 
+			        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+			          <ul class="nav navbar-nav">
+			            <li class="active"><a href="index.html" class="act">Inicio</a></li> 
+			            <!-- Mega Menu -->
+			            <li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+			              <ul class="dropdown-menu multi-column columns-3">
+			                <div class="row">
+			                  <div class="col-sm-3">
+			                    <ul class="multi-column-dropdown">
+			                      <h6>Clothing</h6>
+			                      <li><a href="dresses.html">Dresses<span>New</span></a></li>
+			                      <li><a href="sweaters.html">Sweaters</a></li>
+			                      <li><a href="skirts.html">Shorts & Skirts</a></li>
+			                      <li><a href="jeans.html">Jeans</a></li>
+			                      <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+			                    </ul>
+			                  </div>
+			                  <div class="col-sm-3">
+			                    <ul class="multi-column-dropdown">
+			                      <h6>Ethnic Wear</h6>
+			                      <li><a href="salwars.html">Salwars</a></li>
+			                      <li><a href="sarees.html">Sarees<span>New</span></a></li>
+			                      <li><a href="products.html"><i>Summer Store</i></a></li>
+			                    </ul>
+			                  </div>
+			                  <div class="col-sm-2">
+			                    <ul class="multi-column-dropdown">
+			                      <h6>Foot Wear</h6>
+			                      <li><a href="sandals.html">Flats</a></li>
+			                      <li><a href="sandals.html">Sandals</a></li>
+			                      <li><a href="sandals.html">Boots</a></li>
+			                      <li><a href="sandals.html">Heels</a></li>
+			                    </ul>
+			                  </div>
+			                  <div class="col-sm-4">
+			                    <div class="w3ls_products_pos">
+			                      <h4>50%<i>Off/-</i></h4>
+			                      <img src="images/1.jpg" alt=" " class="img-responsive" />
+			                    </div>
+			                  </div>
+			                  <div class="clearfix"></div>
+			                </div>
+			              </ul>
+			            </li>
+			            <li><a href="about.html">About Us</a></li>
+			            <li><a href="short-codes.html">Registrar Productos</a></li>
+			            <li><a href="mail.html">Mail Us</a></li>
+			          </ul>
+			        </div>
+			      </nav>
+			    </div>
+			</div>    		
+    	</div>
+    </div>
+    @else
+    <div id="menu2">
+		<div class="navigation">
+		    <div class="container">
+		      <nav class="navbar navbar-default">
+		        <!-- Brand and toggle get grouped for better mobile display -->
+		        <div class="navbar-header nav_2">
+		          <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		        </div> 
+		        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+		          <ul class="nav navbar-nav">
+		            <li class="active"><a href="index.html" class="act">Inicio</a></li> 
+		            <!-- Mega Menu -->
+		            <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+		              <ul class="dropdown-menu multi-column columns-3">
+		                <div class="row">
+		                  <div class="col-sm-3">
+		                    <ul class="multi-column-dropdown">
+		                      <h6>Clothing</h6>
+		                      <li><a href="dresses.html">Dresses<span>New</span></a></li>
+		                      <li><a href="sweaters.html">Sweaters</a></li>
+		                      <li><a href="skirts.html">Shorts & Skirts</a></li>
+		                      <li><a href="jeans.html">Jeans</a></li>
+		                      <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+		                    </ul>
+		                  </div>
+		                  <div class="col-sm-3">
+		                    <ul class="multi-column-dropdown">
+		                      <h6>Ethnic Wear</h6>
+		                      <li><a href="salwars.html">Salwars</a></li>
+		                      <li><a href="sarees.html">Sarees<span>New</span></a></li>
+		                      <li><a href="products.html"><i>Summer Store</i></a></li>
+		                    </ul>
+		                  </div>
+		                  <div class="col-sm-2">
+		                    <ul class="multi-column-dropdown">
+		                      <h6>Foot Wear</h6>
+		                      <li><a href="sandals.html">Flats</a></li>
+		                      <li><a href="sandals.html">Sandals</a></li>
+		                      <li><a href="sandals.html">Boots</a></li>
+		                      <li><a href="sandals.html">Heels</a></li>
+		                    </ul>
+		                  </div>
+		                  <div class="col-sm-4">
+		                    <div class="w3ls_products_pos">
+		                      <h4>50%<i>Off/-</i></h4>
+		                      <img src="images/1.jpg" alt=" " class="img-responsive" />
+		                    </div>
+		                  </div>
+		                  <div class="clearfix"></div>
+		                </div>
+		              </ul>
+		            </li>
+		            <li><a href="about.html">About Us</a></li>
+		            <li><a href="mail.html">Mail Us</a></li>
+		          </ul>
+		        </div>
+		      </nav>
+		    </div>
+		</div>   
+    </div>
+	@endif
+    <div>
+    	@yield('contenido')	
+    </div>
 
-    @yield('menu')
-          
-           
-		
-   <!--  <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
- -->
-        
     </div>
 	
 	<div class="newsletter">

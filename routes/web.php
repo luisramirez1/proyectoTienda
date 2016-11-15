@@ -17,9 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/inicio', 'HomeController@inicio');
-Route::get('/invitado', 'HomeController@invitado');
-
-
 //Administrador
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/administrador', 'HomeController@administrador');
+});
+
+Route::group(['middleware' => ['auth']], function () {
+	Route::get('/inicio', 'HomeController@inicio');
+	Route::get('/editar', 'HomeController@editar');
+
+});

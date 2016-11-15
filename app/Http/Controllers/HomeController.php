@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Auth;
 
+
 class HomeController extends Controller
 {
     /**
@@ -30,7 +31,7 @@ class HomeController extends Controller
 
     public function inicio()
     {
-            switch (Auth::user()->tipoUsuario) {
+        switch (Auth::user()->tipoUsuario) {
             case '1':
                 # Administrador
                 return view('/menu/administrador');
@@ -49,8 +50,13 @@ class HomeController extends Controller
         
     }
 
-    public function invitado()
+    public function administrador()
     {
-        return view('/menu/invitado');
+        return view('/administrador');
+    }
+
+    public function editar()
+    {
+        return view('/editar');
     }
 }
