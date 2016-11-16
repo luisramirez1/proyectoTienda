@@ -49,5 +49,27 @@
 
 #home2
 {
+	z-index: 0;
 	margin-top: -120px;
 }
+
+#menu1
+{
+	position: relative;
+	z-index: 1;
+}
+
+#menu2
+{
+	position: relative;
+	z-index: 1;
+
+}
+
+#menu3
+{
+	position: relative;
+	z-index: 1;
+
+}
+

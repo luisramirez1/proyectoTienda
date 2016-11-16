@@ -37,12 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //end-smooth-scrolling -->
 </head>
 <!-- header -->
-<!-- banner -->
-    <div class="banner8" id="home1">
-        <div class="container">
-            <h2>Women Cosmetics<span>up to</span> Flat 40% <i>Discount</i></h2>
-        </div>
-    </div> <br>
+<!-- banner --> 
     <div class="breadcrumb_dress">
         <div class="container">
             <ul>
