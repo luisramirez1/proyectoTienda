@@ -22,7 +22,7 @@ class MDAdmin
             }
             else
             {
-                return redirect('/home');
+                return redirect('/');
             }
     }
 }

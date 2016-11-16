@@ -40,6 +40,8 @@
     <link rel="stylesheet" href="{{asset("css/estilos.css")}}"> 
 	<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		
 	<!-- start-smooth-scrolling -->
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
@@ -343,7 +345,7 @@
 				@if (Auth::guest())
 					<h1><a href="{{url('/')}}"><b>TecShop</b><span>Tecnologia a la Moda</span></a></h1>
 				@else
-					<h1><a href="{{url('/inicio')}}"><b>TecShop</b><span>Tecnologia a la Moda</span></a></h1>
+					<h1><a href="{{url('/')}}"><b>TecShop</b><span>Tecnologia a la Moda</span></a></h1>
 				@endif
 			</div>
 			<div class="search">
@@ -399,28 +401,28 @@
 			        </div> 
 			        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 			          <ul class="nav navbar-nav">
-			            <li class="active"><a href="index.html" class="act">Inicio</a></li> 
+			            <li class="active"><a href="{{url('/')}}" class="act">Inicio</a></li> 
 			            <!-- Mega Menu -->
 			            <li class="dropdown">
-			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
 			              <ul class="dropdown-menu multi-column columns-3">
 			                <div class="row">
 			                  <div class="col-sm-3">
 			                    <ul class="multi-column-dropdown">
-			                      <h6>Clothing</h6>
-			                      <li><a href="dresses.html">Dresses<span>New</span></a></li>
-			                      <li><a href="sweaters.html">Sweaters</a></li>
-			                      <li><a href="skirts.html">Shorts & Skirts</a></li>
-			                      <li><a href="jeans.html">Jeans</a></li>
-			                      <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+			                      <h6>Computadoras</h6>
+			                      <li><a href="dresses.html">Acer<span>New</span></a></li>
+			                      <li><a href="sweaters.html">Apple</a></li>
+			                      <li><a href="skirts.html">Hp</a></li>
+			                      <li><a href="jeans.html">Toshiba</a></li>
+			                      <li><a href="shirts.html">Compact<span>New</span></a></li>
 			                    </ul>
 			                  </div>
 			                  <div class="col-sm-3">
 			                    <ul class="multi-column-dropdown">
-			                      <h6>Ethnic Wear</h6>
-			                      <li><a href="salwars.html">Salwars</a></li>
-			                      <li><a href="sarees.html">Sarees<span>New</span></a></li>
-			                      <li><a href="products.html"><i>Summer Store</i></a></li>
+			                      <h6>Celulares</h6>
+			                      <li><a href="salwars.html">Apple</a></li>
+			                      <li><a href="sarees.html">Samsung<span>New</span></a></li>
+			                      <li><a href="{{url('/productos')}}"><i>Productos</i></a></li>
 			                    </ul>
 			                  </div>
 			                  <div class="col-sm-2">
@@ -468,37 +470,37 @@
 				        </div> 
 				        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 				          <ul class="nav navbar-nav">
-				            <li class="active"><a href="index.html" class="act">Inicio</a></li> 
+				            <li class="active"><a href="{{url('/')}}" class="act">Inicio</a></li> 
 				            <!-- Mega Menu -->
 				            <li class="dropdown">
-				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
 				              <ul class="dropdown-menu multi-column columns-3">
 				                <div class="row">
 				                  <div class="col-sm-3">
 				                    <ul class="multi-column-dropdown">
-				                      <h6>Clothing</h6>
-				                      <li><a href="dresses.html">Dresses<span>New</span></a></li>
-				                      <li><a href="sweaters.html">Sweaters</a></li>
-				                      <li><a href="skirts.html">Shorts & Skirts</a></li>
-				                      <li><a href="jeans.html">Jeans</a></li>
-				                      <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+				                      <h6>Computadoras</h6>
+					                    <li><a href="dresses.html">Acer<span>New</span></a></li>
+					                    <li><a href="sweaters.html">Apple</a></li>
+					                    <li><a href="skirts.html">Hp</a></li>
+					                    <li><a href="jeans.html">Toshiba</a></li>
+					                    <li><a href="shirts.html">Compact<span>New</span></a></li>
 				                    </ul>
 				                  </div>
 				                  <div class="col-sm-3">
 				                    <ul class="multi-column-dropdown">
-				                      <h6>Ethnic Wear</h6>
-				                      <li><a href="salwars.html">Salwars</a></li>
-				                      <li><a href="sarees.html">Sarees<span>New</span></a></li>
-				                      <li><a href="products.html"><i>Summer Store</i></a></li>
+				                      <h6>Electronica</h6>
+				                      <li><a href="salwars.html">Scanners</a></li>
+				                      <li><a href="sarees.html">Impresoras 3D<span>New</span></a></li>
+				                      <li><a href="{{url('/productos')}}"><i>Productos</i></a></li>
 				                    </ul>
 				                  </div>
 				                  <div class="col-sm-2">
 				                    <ul class="multi-column-dropdown">
-				                      <h6>Foot Wear</h6>
-				                      <li><a href="sandals.html">Flats</a></li>
-				                      <li><a href="sandals.html">Sandals</a></li>
-				                      <li><a href="sandals.html">Boots</a></li>
-				                      <li><a href="sandals.html">Heels</a></li>
+				                      <h6>Celulares</h6>
+				                      <li><a href="sandals.html">Apple</a></li>
+				                      <li><a href="sandals.html">Sony</a></li>
+				                      <li><a href="sandals.html">Samsung</a></li>
+				                      <li><a href="sandals.html">Motorola</a></li>
 				                    </ul>
 				                  </div>
 				                  <div class="col-sm-4">
@@ -512,7 +514,7 @@
 				              </ul>
 				            </li>
 				            <li><a href="about.html">About Us</a></li>
-				            <li><a href="short-codes.html">Registrar Productos</a></li>
+				            <li><a href="{{url('/registrarProducto')}}">Registrar Productos</a></li>
 				            <li><a href="mail.html">Mail Us</a></li>
 				          </ul>
 				        </div>
@@ -537,10 +539,10 @@
 			        </div> 
 			        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 			          <ul class="nav navbar-nav">
-			            <li class="active"><a href="index.html" class="act">Inicio</a></li> 
+			            <li class="active"><a href="{{url('/')}}" class="act">Inicio</a></li> 
 			            <!-- Mega Menu -->
 			            <li class="dropdown">
-			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
 			              <ul class="dropdown-menu multi-column columns-3">
 			                <div class="row">
 			                  <div class="col-sm-3">
@@ -558,7 +560,7 @@
 			                      <h6>Ethnic Wear</h6>
 			                      <li><a href="salwars.html">Salwars</a></li>
 			                      <li><a href="sarees.html">Sarees<span>New</span></a></li>
-			                      <li><a href="products.html"><i>Summer Store</i></a></li>
+			                      <li><a href="{{url('/productos')}}"><i>Productos</i></a></li>
 			                    </ul>
 			                  </div>
 			                  <div class="col-sm-2">
@@ -649,7 +651,7 @@
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
 					<ul class="info"> 
-						<li><a href="products.html">Summer Store</a></li>
+						<li><a href="{{url('/productos')}}">Productos</a></li>
 						<li><a href="checkout.html">My Cart</a></li>
 					</ul>
 					<h4>Follow Us</h4>
