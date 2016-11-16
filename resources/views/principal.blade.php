@@ -620,47 +620,45 @@
 		<div class="container">
 			<div class="w3_footer_grids">
 				<div class="col-md-3 w3_footer_grid">
-					<h3>Contact</h3>
+					<h3>Contacto</h3>
 					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
 					<ul class="address">
-						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Desarrollo Urbano 3 Rios, <span>#1234 Culiacan, Sinaloa.</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">tecShop@gmail.com</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+6671234567</li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
-					<h3>Information</h3>
+					<h3>Información</h3>
 					<ul class="info"> 
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="mail.html">Contact Us</a></li>
-						<li><a href="short-codes.html">Short Codes</a></li>
-						<li><a href="faq.html">FAQ's</a></li>
-						<li><a href="products.html">Special Products</a></li>
+						<li><a href="#">Nosotros</a></li>
+						<li><a href="#">Contactanos</a></li>
+						<li><a href="#">FAQ's</a></li>
+						<li><a href="#">Productos Especiales</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
-					<h3>Category</h3>
+					<h3>Categorias</h3>
 					<ul class="info"> 
-						<li><a href="dresses.html">Dresses</a></li>
-						<li><a href="sweaters.html">Sweaters</a></li>
-						<li><a href="shirts.html">Shirts</a></li>
-						<li><a href="sarees.html">Sarees</a></li>
-						<li><a href="skirts.html">Shorts & Skirts</a></li>
+						<li><a href="#">Audio y Video</a></li>
+						<li><a href="#">Computadoras</a></li>
+						<li><a href="#">Consolas y Videojuegos</a></li>
+						<li><a href="#">Smartphone</a></li>
+						<li><a href="#">Electronica</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
-					<h3>Profile</h3>
+					<h3>Perfil</h3>
 					<ul class="info"> 
 						<li><a href="{{url('/productos')}}">Productos</a></li>
-						<li><a href="checkout.html">My Cart</a></li>
+						<li><a href="checkout.html">Mi carrito</a></li>
 					</ul>
-					<h4>Follow Us</h4>
+					<h4>Siguenos</h4>
 					<div class="agileits_social_button">
 						<ul>
-							<li><a href="#" class="facebook"> </a></li>
-							<li><a href="#" class="twitter"> </a></li>
-							<li><a href="#" class="google"> </a></li>
-							<li><a href="#" class="pinterest"> </a></li>
+							<li><a href="www.facebook.com/" class="facebook"> </a></li>
+							<li><a href="www.twitter.com/" class="twitter"> </a></li>
+							<li><a href="www.google.com/" class="google"> </a></li>
 						</ul>
 					</div>
 				</div>
