@@ -21,6 +21,9 @@ class CreateUsersTable extends Migration
             $table->integer('tipoUsuario');
             $table->bigInteger('tel');
             $table->string('imagen')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('github')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,7 +33,10 @@ class CreateUsersTable extends Migration
                 'email' => 'luisramirez.lfrs@gmail.com',
                 'password' => bcrypt('luis123'),
                 'tipoUsuario' => '1',
-                'tel' => '6672005057'
+                'tel' => '6672005057',
+                'facebook' => 'luisramirez.lfrs',
+                'twitter' => 'luiss_ramirez',
+                'github' => 'luisramirez1'
             ]
         );
 

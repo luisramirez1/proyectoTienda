@@ -190,13 +190,13 @@
 								});
 							</script>
 							<div id="OR" class="hidden-xs">
-								OR</div>
+								</div>
 						</div>
 						<div class="col-md-4 modal_body_right modal_body_right1">
 							<div class="row text-center sign-with">
 								<div class="col-md-12">
 									<h3 class="other-nw">
-										Sign in with</h3>
+										</h3>
 								</div>
 								<div class="col-md-12">
 									<ul class="social">
@@ -242,11 +242,17 @@
 											<b>Correo:</b> {{Auth::user()->email}} <br>
 											<b>Celular:</b> {{Auth::user()->tel}}<br>
 										</ul>
-										<a href="{{url('/editar')}}" class="btn btn-info" id="editar">Editar</a>
+										<a href="{{url('/editar')}}/{{Auth::user()->id}}" class="btn btn-info" id="editar">Editar</a>
 									</div>
+									@if(Auth::user()->imagen== null)
+									<div class="w3l_login" id="imagenP2">
+										<a><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+									</div>
+									@else
 									<div class="col-md-4">
-										<span aria-hidden="true" id="imagenP"><img src="{{asset("images/2.jpg")}}" alt=""></span>
+										<span aria-hidden="true" id="imagenP"><img src="{{asset("images/perfil")}}/{{Auth::user()->imagen}}" alt=""></span>
 									</div>
+									@endif
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 										<div class="facts">
 											<div class="register">
@@ -284,10 +290,10 @@
 								</div>
 								<div class="col-md-12">
 									<ul class="social">
-										<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-										<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-										<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-										<li class="social_behance"><a href="#" class="entypo-behance"></a></li>
+										<li class="social_facebook"><a href="http://www.facebook.com/{{Auth::user()->facebook}}" class="entypo-facebook" target="_blank"></a></li>
+										<li class="social_dribbble"><a href="#" class="entypo-dribbble" block></a></li>
+										<li class="social_twitter"><a href="http://www.twitter.com/{{Auth::user()->twitter}}" class="entypo-twitter" target="_blank"></a></li>
+										<li class="social_behance"><a href="http://www.github.com/{{Auth::user()->github}}" class="entypo-behance" target="_blank"></a></li>
 									</ul>
 								</div>
 							</div>
@@ -310,9 +316,15 @@
 				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 			@else
+			@if(Auth::user()->imagen== null)
 			<div class="w3l_login">
-				<a href="#" data-toggle="modal" data-target="#myModal89"><span aria-hidden="true" id="imagen"><img src="{{asset("images/2.jpg")}}" alt=""></span></a>
+				<a href="#" data-toggle="modal" data-target="#myModal89"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
+			@else
+			<div class="w3l_login">
+				<a href="#" data-toggle="modal" data-target="#myModal89"><span aria-hidden="true" id="imagen"><img src="{{asset("images/perfil")}}/{{Auth::user()->imagen}}" alt=""></span></a>
+			</div>
+			@endif
 			@endif
 			@if (Auth::guest())
 			@else
@@ -360,7 +372,7 @@
                     </form>
                                    
 					<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-					<img src="images/bag.png" alt="" />
+					<img src="{{asset("images/bag.png")}}" alt="" />
 				</a>
 				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 				<div class="clearfix"> </div>
@@ -371,8 +383,8 @@
 	</div>
 	
 	<div id="home1">
-    @if(Auth::user()->tipoUsuario==1)	
-    	<div id="menu1">
+	@if (Auth::guest())
+		<div id="menu3">
 			<div class="navigation">
 			    <div class="container">
 			      <nav class="navbar navbar-default">
@@ -431,82 +443,153 @@
 			              </ul>
 			            </li>
 			            <li><a href="about.html">About Us</a></li>
-			            <li><a href="short-codes.html">Registrar Productos</a></li>
+			            <li><a href="about.html">About Us</a></li>
 			            <li><a href="mail.html">Mail Us</a></li>
 			          </ul>
 			        </div>
 			      </nav>
 			    </div>
-			</div>    		
-    	</div>
-    </div>
+			</div>   
+	    </div>
     @else
-    <div id="menu2">
-		<div class="navigation">
-		    <div class="container">
-		      <nav class="navbar navbar-default">
-		        <!-- Brand and toggle get grouped for better mobile display -->
-		        <div class="navbar-header nav_2">
-		          <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-		            <span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		          </button>
-		        </div> 
-		        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-		          <ul class="nav navbar-nav">
-		            <li class="active"><a href="index.html" class="act">Inicio</a></li> 
-		            <!-- Mega Menu -->
-		            <li class="dropdown">
-		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-		              <ul class="dropdown-menu multi-column columns-3">
-		                <div class="row">
-		                  <div class="col-sm-3">
-		                    <ul class="multi-column-dropdown">
-		                      <h6>Clothing</h6>
-		                      <li><a href="dresses.html">Dresses<span>New</span></a></li>
-		                      <li><a href="sweaters.html">Sweaters</a></li>
-		                      <li><a href="skirts.html">Shorts & Skirts</a></li>
-		                      <li><a href="jeans.html">Jeans</a></li>
-		                      <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
-		                    </ul>
-		                  </div>
-		                  <div class="col-sm-3">
-		                    <ul class="multi-column-dropdown">
-		                      <h6>Ethnic Wear</h6>
-		                      <li><a href="salwars.html">Salwars</a></li>
-		                      <li><a href="sarees.html">Sarees<span>New</span></a></li>
-		                      <li><a href="products.html"><i>Summer Store</i></a></li>
-		                    </ul>
-		                  </div>
-		                  <div class="col-sm-2">
-		                    <ul class="multi-column-dropdown">
-		                      <h6>Foot Wear</h6>
-		                      <li><a href="sandals.html">Flats</a></li>
-		                      <li><a href="sandals.html">Sandals</a></li>
-		                      <li><a href="sandals.html">Boots</a></li>
-		                      <li><a href="sandals.html">Heels</a></li>
-		                    </ul>
-		                  </div>
-		                  <div class="col-sm-4">
-		                    <div class="w3ls_products_pos">
-		                      <h4>50%<i>Off/-</i></h4>
-		                      <img src="images/1.jpg" alt=" " class="img-responsive" />
-		                    </div>
-		                  </div>
-		                  <div class="clearfix"></div>
-		                </div>
-		              </ul>
-		            </li>
-		            <li><a href="about.html">About Us</a></li>
-		            <li><a href="mail.html">Mail Us</a></li>
-		          </ul>
-		        </div>
-		      </nav>
-		    </div>
-		</div>   
-    </div>
+	    @if(Auth::user()->tipoUsuario==1)	
+	    	<div id="menu1">
+				<div class="navigation">
+				    <div class="container">
+				      <nav class="navbar navbar-default">
+				        <!-- Brand and toggle get grouped for better mobile display -->
+				        <div class="navbar-header nav_2">
+				          <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+				            <span class="sr-only">Toggle navigation</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				          </button>
+				        </div> 
+				        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+				          <ul class="nav navbar-nav">
+				            <li class="active"><a href="index.html" class="act">Inicio</a></li> 
+				            <!-- Mega Menu -->
+				            <li class="dropdown">
+				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+				              <ul class="dropdown-menu multi-column columns-3">
+				                <div class="row">
+				                  <div class="col-sm-3">
+				                    <ul class="multi-column-dropdown">
+				                      <h6>Clothing</h6>
+				                      <li><a href="dresses.html">Dresses<span>New</span></a></li>
+				                      <li><a href="sweaters.html">Sweaters</a></li>
+				                      <li><a href="skirts.html">Shorts & Skirts</a></li>
+				                      <li><a href="jeans.html">Jeans</a></li>
+				                      <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+				                    </ul>
+				                  </div>
+				                  <div class="col-sm-3">
+				                    <ul class="multi-column-dropdown">
+				                      <h6>Ethnic Wear</h6>
+				                      <li><a href="salwars.html">Salwars</a></li>
+				                      <li><a href="sarees.html">Sarees<span>New</span></a></li>
+				                      <li><a href="products.html"><i>Summer Store</i></a></li>
+				                    </ul>
+				                  </div>
+				                  <div class="col-sm-2">
+				                    <ul class="multi-column-dropdown">
+				                      <h6>Foot Wear</h6>
+				                      <li><a href="sandals.html">Flats</a></li>
+				                      <li><a href="sandals.html">Sandals</a></li>
+				                      <li><a href="sandals.html">Boots</a></li>
+				                      <li><a href="sandals.html">Heels</a></li>
+				                    </ul>
+				                  </div>
+				                  <div class="col-sm-4">
+				                    <div class="w3ls_products_pos">
+				                      <h4>50%<i>Off/-</i></h4>
+				                      <img src="images/1.jpg" alt=" " class="img-responsive" />
+				                    </div>
+				                  </div>
+				                  <div class="clearfix"></div>
+				                </div>
+				              </ul>
+				            </li>
+				            <li><a href="about.html">About Us</a></li>
+				            <li><a href="short-codes.html">Registrar Productos</a></li>
+				            <li><a href="mail.html">Mail Us</a></li>
+				          </ul>
+				        </div>
+				      </nav>
+				    </div>
+				</div>    		
+	    	</div>
+	    </div>
+	    @else
+	    <div id="menu2">
+			<div class="navigation">
+			    <div class="container">
+			      <nav class="navbar navbar-default">
+			        <!-- Brand and toggle get grouped for better mobile display -->
+			        <div class="navbar-header nav_2">
+			          <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			          </button>
+			        </div> 
+			        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+			          <ul class="nav navbar-nav">
+			            <li class="active"><a href="index.html" class="act">Inicio</a></li> 
+			            <!-- Mega Menu -->
+			            <li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+			              <ul class="dropdown-menu multi-column columns-3">
+			                <div class="row">
+			                  <div class="col-sm-3">
+			                    <ul class="multi-column-dropdown">
+			                      <h6>Clothing</h6>
+			                      <li><a href="dresses.html">Dresses<span>New</span></a></li>
+			                      <li><a href="sweaters.html">Sweaters</a></li>
+			                      <li><a href="skirts.html">Shorts & Skirts</a></li>
+			                      <li><a href="jeans.html">Jeans</a></li>
+			                      <li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+			                    </ul>
+			                  </div>
+			                  <div class="col-sm-3">
+			                    <ul class="multi-column-dropdown">
+			                      <h6>Ethnic Wear</h6>
+			                      <li><a href="salwars.html">Salwars</a></li>
+			                      <li><a href="sarees.html">Sarees<span>New</span></a></li>
+			                      <li><a href="products.html"><i>Summer Store</i></a></li>
+			                    </ul>
+			                  </div>
+			                  <div class="col-sm-2">
+			                    <ul class="multi-column-dropdown">
+			                      <h6>Foot Wear</h6>
+			                      <li><a href="sandals.html">Flats</a></li>
+			                      <li><a href="sandals.html">Sandals</a></li>
+			                      <li><a href="sandals.html">Boots</a></li>
+			                      <li><a href="sandals.html">Heels</a></li>
+			                    </ul>
+			                  </div>
+			                  <div class="col-sm-4">
+			                    <div class="w3ls_products_pos">
+			                      <h4>50%<i>Off/-</i></h4>
+			                      <img src="images/1.jpg" alt=" " class="img-responsive" />
+			                    </div>
+			                  </div>
+			                  <div class="clearfix"></div>
+			                </div>
+			              </ul>
+			            </li>
+			            <li><a href="about.html">About Us</a></li>
+			            <li><a href="about.html">About Us</a></li>
+			            <li><a href="mail.html">Mail Us</a></li>
+			          </ul>
+			        </div>
+			      </nav>
+			    </div>
+			</div>   
+	    </div>
+		@endif
 	@endif
     <div>
     	@yield('contenido')	
@@ -585,7 +668,7 @@
 		<div class="footer-copy">
 			<div class="footer-copy1">
 				<div class="footer-copy-pos">
-					<a href="#home1" class="scroll"><img src="images/arrow.png" alt=" " class="img-responsive" /></a>
+					<a href="#home1" class="scroll"><img src="{{asset("images/arrow.png")}}" alt=" " class="img-responsive" /></a>
 				</div>
 			</div>
 			<div class="container">
